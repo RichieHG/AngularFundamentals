@@ -11,9 +11,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string;
 
+  title: string;
+  numberOne: number = 1;
+  numberTwo: number = 2;
+  isHappy: boolean = false;
+  logo: string = "../assets/img/LogoWhite.svg";
+  name: string = "Neftali";
   constructor() {
     this.title = 'Angular Fundamentals';
+  }
+
+  handleBlur(event: any) {
+    this.name = event.target.value;
+  }
+
+  handleInput(event: any) {
+    this.name = event.target.value;
+  }
+
+  handleClick() {
+    this.name = "Richie";
+  }
+
+  handleChange(value: string) {
+    this.name = value;
+  }
+
+  handleClickTemplateRef(value: string) {
+    this.name = value;
   }
 }
