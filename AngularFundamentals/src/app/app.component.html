@@ -5,16 +5,16 @@
     Change Name
   </button>
   <br>
-  <input type="text" [ngModel]="name" 
+  <input type="text" [ngModel]="name"
   (ngModelChange)="handleChange($event)">
-  <(blur)="handleBlur($event)" 
-  (input)="handleInput($event)"> 
+  <(blur)="handleBlur($event)"
+  (input)="handleInput($event)">
   <br>
   <input type="text" [(ngModel)]="name">
   <div>
     Hello {{name}}!
   </div>
-</div>  
+</div>
 
 <div>
   <button (click)="handleClickTemplateRef(userName.value)">
@@ -24,7 +24,7 @@
   <div>
     Hello {{name}}!
   </div>
-</div>   
+</div>
 -->
 
 <!-- INTRODUCTION -->
@@ -41,15 +41,15 @@
 </div>
 <div>
   {{isHappy ? ':)' : ':('}}
-</div> 
+</div>
 
 -->
 
 <!-- RENDERING FLOWS -->
 <!-- NgIf -->
 <!-- <div>
-  <input type="text" [ngModel]="name" 
-  (input)="handleChange($any($event.target).value)">  
+  <input type="text" [ngModel]="name"
+  (input)="handleChange($any($event.target).value)">
 
   <ng-template [ngIf] ="name.length > 2">
     <div>
@@ -83,13 +83,13 @@
     </li>
   </ul> -->
 
-  
+
 
   <!-- Configure multiple classes in an element -->
   <!-- <h3>Airline Passengers</h3>
   <ul style="list-style-type:none;">
     <li *ngFor="let passenger of passengers, let i = index">
-      <span class="status" 
+      <span class="status"
       [ngClass]="{
         'checked-in':passenger.checkedIn,
         'checked-out': !passenger.checkedIn}"></span>
@@ -98,28 +98,45 @@
   </ul> -->
 <!-- </div> -->
 
-<div>
+<!-- <div>
   <h3>Airline Passengers</h3>
   <ul style="list-style-type:none;">
-    <li *ngFor="let passenger of passengers, let i = index">
+    <li *ngFor="let passenger of passengers, let i = index"> -->
       <!-- Every style property has to be on CamelCase (javascript equivalent) -->
-      <span class="status"
+      <!-- <span class="status"
       [style.backgroundColor]="(passenger.checkedIn ? 'green' : 'red')"></span>
       {{ i }} : {{ passenger.fullName }}
     </li>
-  </ul> 
+  </ul>  -->
 
-  <h3>Airline Passengers</h3>
+  <!-- <h3>Airline Passengers</h3>
   <ul style="list-style-type:none;">
-    <li *ngFor="let passenger of passengers, let i = index">
+    <li *ngFor="let passenger of passengers, let i = index"> -->
       <!-- Every style property has to be on CamelCase (javascript equivalent) -->
-      <span class="status" 
+      <!-- <span class="status"
       [ngStyle]="{
         backgroundColor : (passenger.checkedIn ? 'green' : 'red')
       }"></span>
       {{ i }} : {{ passenger.fullName }}
     </li>
-  </ul> 
+  </ul>
+</div> -->
+
+<!-- Pipes -->
+<div>
+  <h3>Airline Passengers</h3>
+  <ul style="list-style-type:none;">
+    <li *ngFor="let passenger of passengers, let i = index">
+      <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+      {{ i }} : {{ passenger.fullName }}
+      <p> {{passenger | json}} </p>
+      <div class="date">
+        Check-In date: {{passenger.checkInDate ? ( passenger.checkInDate | date: 'MMM d, y' | uppercase) : 'Not Check-In'}}
+      </div>
+      <div class="children">
+        Children : {{passenger.children?.length || 0}}
+      </div>
+    </li>
+  </ul>
 </div>
 
- 
