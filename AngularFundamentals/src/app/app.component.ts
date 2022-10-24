@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
 
+interface Passenger{
+  id: number,
+  fullName: string,
+  checkedIn: boolean
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +23,30 @@ export class AppComponent {
   numberTwo: number = 2;
   isHappy: boolean = false;
   logo: string = "../assets/img/LogoWhite.svg";
-  name: string = "Neftali";
+  name: string = "";
+
+  passengers: Passenger[] = [
+    {
+      id: 1,
+      fullName: "Ricardo",
+      checkedIn: true
+    },
+    {
+      id: 2,
+      fullName: "Ricardo2",
+      checkedIn: true
+    },
+    {
+      id: 3,
+      fullName: "Ricardo3",
+      checkedIn: false
+    },
+    {
+      id: 4,
+      fullName: "Ricardo4",
+      checkedIn: true
+    }
+  ]
   constructor() {
     this.title = 'Angular Fundamentals';
   }

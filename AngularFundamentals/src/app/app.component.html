@@ -1,12 +1,14 @@
-<div>
+<!-- TEMPLATE FUNDAMENTALS-->
+<!--
+  <div>
   <button (click)="handleClick()">
     Change Name
   </button>
   <br>
   <input type="text" [ngModel]="name" 
   (ngModelChange)="handleChange($event)">
-  <!-- (blur)="handleBlur($event)" 
-  (input)="handleInput($event)"> -->
+  <(blur)="handleBlur($event)" 
+  (input)="handleInput($event)"> 
   <br>
   <input type="text" [(ngModel)]="name">
   <div>
@@ -22,19 +24,102 @@
   <div>
     Hello {{name}}!
   </div>
-</div>  
+</div>   
+-->
 
-<!-- <div class="app">
+<!-- INTRODUCTION -->
+<!--
+  <div class="app">
   <h1 [innerText]="title"></h1>
   <h1>{{title}}</h1>
 </div>
 <div>
   <img [src]="logo" width="150px">
-</div> -->
-
-<!-- <div>
+</div>
+ <div>
   {{numberOne + numberTwo}}
 </div>
 <div>
   {{isHappy ? ':)' : ':('}}
+</div> 
+
+-->
+
+<!-- RENDERING FLOWS -->
+<!-- NgIf -->
+<!-- <div>
+  <input type="text" [ngModel]="name" 
+  (input)="handleChange($any($event.target).value)">  
+
+  <ng-template [ngIf] ="name.length > 2">
+    <div>
+      Searching for... {{name}}!
+    </div>
+  </ng-template>
+
+  <div *ngIf="name.length > 2">
+    Searching for... {{name}}!
+  </div>
 </div> -->
+
+<!-- NgFor and Classes -->
+
+ <!-- NgFor with Angular Template -->
+  <!-- <h3>Airline Passengers</h3>
+  <ul>
+    <ng-template ngFor let-passenger let-i="index" [ngForOf] ="passengers">
+      <li>
+        {{ i }} : {{ passenger.fullName }}
+      </li>
+    </ng-template>
+  </ul> -->
+
+<!-- <div class="app">
+  <h3>Airline Passengers</h3>
+  <ul style="list-style-type:none;">
+    <li *ngFor="let passenger of passengers, let i = index">
+      <span class="status" [class.checked-in]="passenger.checkedIn"></span>
+      {{ i }} : {{ passenger.fullName }}
+    </li>
+  </ul> -->
+
+  
+
+  <!-- Configure multiple classes in an element -->
+  <!-- <h3>Airline Passengers</h3>
+  <ul style="list-style-type:none;">
+    <li *ngFor="let passenger of passengers, let i = index">
+      <span class="status" 
+      [ngClass]="{
+        'checked-in':passenger.checkedIn,
+        'checked-out': !passenger.checkedIn}"></span>
+      {{ i }} : {{ passenger.fullName }}
+    </li>
+  </ul> -->
+<!-- </div> -->
+
+<div>
+  <h3>Airline Passengers</h3>
+  <ul style="list-style-type:none;">
+    <li *ngFor="let passenger of passengers, let i = index">
+      <!-- Every style property has to be on CamelCase (javascript equivalent) -->
+      <span class="status"
+      [style.backgroundColor]="(passenger.checkedIn ? 'green' : 'red')"></span>
+      {{ i }} : {{ passenger.fullName }}
+    </li>
+  </ul> 
+
+  <h3>Airline Passengers</h3>
+  <ul style="list-style-type:none;">
+    <li *ngFor="let passenger of passengers, let i = index">
+      <!-- Every style property has to be on CamelCase (javascript equivalent) -->
+      <span class="status" 
+      [ngStyle]="{
+        backgroundColor : (passenger.checkedIn ? 'green' : 'red')
+      }"></span>
+      {{ i }} : {{ passenger.fullName }}
+    </li>
+  </ul> 
+</div>
+
+ 
