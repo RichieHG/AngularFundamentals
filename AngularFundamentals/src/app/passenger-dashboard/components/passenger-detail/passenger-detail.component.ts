@@ -23,7 +23,7 @@ import { Passenger } from "../../models/passenger.interface";
             : 'Not Check-In'
         }}
       </div>
-      <div class="children">Children : {{ detail?.children?.length || 0 }}</div>
+      <!-- <div class="children">Children : {{ detail?.children?.length || 0 }}</div> -->
       <button (click)="toogleEdit()">
         {{editing ? 'Done': 'Edit'}}
       </button>
@@ -40,14 +40,14 @@ export class PassengerDetailComponent implements OnChanges {
   @Output()
   remove: EventEmitter<any> = new EventEmitter();
 
-@Output()
- edit: EventEmitter<any> = new EventEmitter();
+  @Output()
+  edit: EventEmitter<any> = new EventEmitter();
 
   editing: boolean = false;
   constructor() { }
 
-  ngOnChanges(changes: any)  {
-    if(changes.detail){
+  ngOnChanges(changes: any) {
+    if (changes.detail) {
       this.detail = Object.assign({}, changes.detail.currentValue);
     }
   }
@@ -56,12 +56,12 @@ export class PassengerDetailComponent implements OnChanges {
   }
 
   toogleEdit() {
-    if(this.editing) this.edit.emit(this.detail);
+    if (this.editing) this.edit.emit(this.detail);
     this.editing = !this.editing;
     // if(!this.editing) this.edit.emit(this.detail);
   }
 
-  onRemove(){
+  onRemove() {
     this.remove.emit(this.detail);
   }
 }
