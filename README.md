@@ -1,6 +1,11 @@
 # AngularFundamentals
 In this repo we are goint to makeAngular Fundamentals practices
 
+To run a local API/DB  you have to run this script in terminal 
+```
+json-server --watch db.json
+```
+
 ## Angular Architecture
 * Modules
     * Contain routes, components, services and more
@@ -12,3 +17,4 @@ In this repo we are goint to makeAngular Fundamentals practices
     * This, renders a component based on the URL state. Also, it drices the navigation
 * Services
     * It's basically the Data layer. Contains logic that is not component related (sucha as API requests)
+

@@ -23,6 +23,16 @@ export class PassengerDashboardService {
       );
   }
 
+  getPassenger(id: number): Observable<Passenger> {
+    return this.httpClient
+      .get(`${PASSENGER_API}/${id}`)
+      .pipe(
+        map((response: any) =>  response)
+        ,
+        catchError((error: HttpResponse<any>) => throwError(() => error))
+      );
+  }
+
   getPassengersPromise(): Promise<Passenger[]> {
     return this.httpClient
       .get(PASSENGER_API)

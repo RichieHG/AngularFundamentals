@@ -14,21 +14,23 @@ export class LocalDataServerService implements InMemoryDbService{
         fullName: "Ricardo",
         checkedIn: true,
         checkInDate: 1460842000000,
-        children: [{ name: "Rosa", age: 12 }]
+        // children: [{ name: "Rosa", age: 12 }],
+        baggage: ""
       },
       {
         id: 2,
         fullName: "Ricardo2",
         checkedIn: true,
         checkInDate: 1410842000000,
-        children: null
+        // children: null
+        baggage: ""
       },
       {
         id: 3,
         fullName: "Ricardo3",
         checkedIn: false,
-        checkInDate: null,
-        children: [{ name: "Luisa", age: 12 }]
+        // children: [{ name: "Luisa", age: 12 }]
+        baggage: ""
 
       },
       {
@@ -36,7 +38,8 @@ export class LocalDataServerService implements InMemoryDbService{
         fullName: "Ricardo4",
         checkedIn: true,
         checkInDate: 1890722000000,
-        children: null
+        // children: null
+        baggage: ""
       }
     ];
     return{passengers};
