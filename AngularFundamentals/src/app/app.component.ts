@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Nav } from './models/nav.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,23 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+  nav: Nav[] = [
+    {
+      link: '/',
+      name: 'Home',
+      exact: true
+    },
+    {
+      link: '/oops',
+      name: '404',
+      exact: false
+    },
+    {
+      link: '/passengers',
+      name: 'Passengers',
+      exact: false
+    }
+  ];
   title: string;
   numberOne: number = 1;
   numberTwo: number = 2;

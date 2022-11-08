@@ -2,7 +2,7 @@
   "passengers": [
     {
       "id": 1,
-      "fullName": "Ricardo HG",
+      "fullName": "Ricardo Hernandez",
       "checkedIn": true,
       "baggage": "hand-hold",
       "checkInDate": 1667854776265
@@ -22,10 +22,10 @@
     },
     {
       "id": 4,
-      "fullName": "Ricardo4",
+      "fullName": "Noemi Gomez",
       "checkedIn": true,
-      "checkInDate": 1890722000000,
-      "baggage": ""
+      "baggage": "",
+      "checkInDate": 1890722000000
     }
   ]
 }
