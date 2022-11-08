@@ -64,8 +64,8 @@
 
 <!-- NgFor and Classes -->
 
- <!-- NgFor with Angular Template -->
-  <!-- <h3>Airline Passengers</h3>
+<!-- NgFor with Angular Template -->
+<!-- <h3>Airline Passengers</h3>
   <ul>
     <ng-template ngFor let-passenger let-i="index" [ngForOf] ="passengers">
       <li>
@@ -85,8 +85,8 @@
 
 
 
-  <!-- Configure multiple classes in an element -->
-  <!-- <h3>Airline Passengers</h3>
+<!-- Configure multiple classes in an element -->
+<!-- <h3>Airline Passengers</h3>
   <ul style="list-style-type:none;">
     <li *ngFor="let passenger of passengers, let i = index">
       <span class="status"
@@ -102,18 +102,18 @@
   <h3>Airline Passengers</h3>
   <ul style="list-style-type:none;">
     <li *ngFor="let passenger of passengers, let i = index"> -->
-      <!-- Every style property has to be on CamelCase (javascript equivalent) -->
-      <!-- <span class="status"
+<!-- Every style property has to be on CamelCase (javascript equivalent) -->
+<!-- <span class="status"
       [style.backgroundColor]="(passenger.checkedIn ? 'green' : 'red')"></span>
       {{ i }} : {{ passenger.fullName }}
     </li>
   </ul>  -->
 
-  <!-- <h3>Airline Passengers</h3>
+<!-- <h3>Airline Passengers</h3>
   <ul style="list-style-type:none;">
     <li *ngFor="let passenger of passengers, let i = index"> -->
-      <!-- Every style property has to be on CamelCase (javascript equivalent) -->
-      <!-- <span class="status"
+<!-- Every style property has to be on CamelCase (javascript equivalent) -->
+<!-- <span class="status"
       [ngStyle]="{
         backgroundColor : (passenger.checkedIn ? 'green' : 'red')
       }"></span>
@@ -144,5 +144,18 @@
 
 <div class="app">
   <!-- <passenger-dashboard></passenger-dashboard> -->
-  <passenger-viewer></passenger-viewer>
+  <!-- <passenger-viewer></passenger-viewer> -->
+  <nav class="nav">
+    <!-- <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+      Home
+    </a>
+    <a routerLink="/oops" routerLinkActive="active">
+      404
+    </a> -->
+    <a *ngFor="let item of nav" [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: item.exact}">
+      {{item.name}}
+    </a>
+  </nav>
+
+  <router-outlet></router-outlet>
 </div>

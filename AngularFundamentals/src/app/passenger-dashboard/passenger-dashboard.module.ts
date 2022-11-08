@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { FormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
 // Containers
 import { PassengerDashboardComponent } from "./containers/passenger-dashboard/passenger-dashboard.component";
 import { PassengerViewerComponent } from "./containers/passenger-viewer/passenger-viewer.component";
@@ -17,6 +18,22 @@ import { PassengerFormComponent } from "./components/passenger-form/passenger-fo
 import { PassengerDashboardService } from "./passenger-dashboard.service";
 import { LocalDataServerService } from "../local-data-server/local-data-server.service";
 
+const routes: Routes =[
+  {
+    path:'passengers',
+    children: [
+      {
+        path: '',
+        component: PassengerDashboardComponent
+      },
+      {
+        path:':id',
+        component: PassengerViewerComponent
+      }
+    ]
+  }
+];
+
 @NgModule({
   declarations:[
     PassengerDashboardComponent,
@@ -29,7 +46,8 @@ import { LocalDataServerService } from "../local-data-server/local-data-server.s
     //Angular Modules
     CommonModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forChild(routes)
     // HttpClientInMemoryWebApiModule,
     // HttpClientInMemoryWebApiModule.forRoot(LocalDataServerService)
   ],
